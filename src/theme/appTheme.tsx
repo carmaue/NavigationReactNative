@@ -1,7 +1,11 @@
 import React from 'react'
 import { StyleSheet } from 'react-native';
 
-
+export const colors = {
+    primary: 'violet',
+    secondary: 'orange',
+    third: 'cyan'
+}
 export const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
