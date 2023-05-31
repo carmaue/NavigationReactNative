@@ -6,11 +6,11 @@ import { colors } from '../theme/appTheme';
 // import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Platform, Text } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export const Tabs = () => {
 
-    return Platform.OS === 'ios' ? <TabsAndroid /> : <TabsAndroid />;
+    return Platform.OS === 'ios' ? <TabsIOS /> : <TabsIOS />;
 
 }
 
@@ -49,7 +49,7 @@ const TabsAndroid = () => {
                             iconName = 'ST'
                             break;
                     }
-                    return <Text style={{ color }}>{iconName}</Text>
+                    return <Ionicons name="md-checkmark-circle" size={32} color="green" style={{ color }}>{iconName}</Ionicons>
                 }
             })}>
             <Tab.Screen name="Tab1Screen" options={{ title: 'Tab1' }} component={Tab1Screen} />
@@ -98,7 +98,7 @@ export const TabsIOS = () => {
                             iconName = 'ST'
                             break;
                     }
-                    return <Text style={{ color }}>{iconName}</Text>
+                    return <Ionicons name="car-sport-outline" size={32} color="green" style={{ color }}>{iconName}</Ionicons>
                 }
             })}
         >
