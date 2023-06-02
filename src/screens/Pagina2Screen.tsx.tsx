@@ -1,8 +1,9 @@
 import { StackNavigationProp, StackScreenProps } from '@react-navigation/stack'
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { RootStackScreen } from '../navigation/StackNavigator'
+import { AuthContext } from '../context/AuthContext'
 
 
 interface Props extends StackScreenProps<RootStackScreen, 'Pagina2Screen'> { };
@@ -18,7 +19,6 @@ export const Pagina2Screen = ({ route, navigation }: Props) => {
     const params = route.params;
 
     useEffect(() => {
-
         navigation.setOptions({
             title: params.nombre,
         })
@@ -26,6 +26,12 @@ export const Pagina2Screen = ({ route, navigation }: Props) => {
     }, [])
 
 
+    const { changeUsername } = useContext(AuthContext);
+
+    useEffect(() => {
+
+        changeUsername(params.nombre);
+    }, [])
 
 
     return (
